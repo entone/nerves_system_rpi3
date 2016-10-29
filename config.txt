@@ -22,3 +22,5 @@ dtparam=i2c_arm=on,spi=on
 
 # Enable the UART (/dev/ttyS0) on the RPi3.
 enable_uart=1
+
+arm_freq=1200
