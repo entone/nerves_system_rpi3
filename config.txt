@@ -24,3 +24,4 @@ dtparam=i2c_arm=on,spi=on
 enable_uart=1
 
 arm_freq=1200
+arm_freq_min=1200
