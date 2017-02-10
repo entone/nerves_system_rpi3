@@ -8,11 +8,12 @@ defmodule NervesSystemRpi3.Mixfile do
   def project do
     [app: :nerves_system_rpi3,
      version: @version,
-     elixir: "~> 1.2",
-     compilers: Mix.compilers ++ [:nerves_system],
-     description: description,
-     package: package,
-     deps: deps]
+     elixir: "~> 1.3",
+     compilers: Mix.compilers ++ [:nerves_package],
+     description: description(),
+     package: package(),
+     deps: deps(),
+     aliases: ["deps.precompile": ["nerves.env", "deps.precompile"]]]
   end
 
   def application do
@@ -20,9 +21,10 @@ defmodule NervesSystemRpi3.Mixfile do
   end
 
   defp deps do
-    [{:nerves_system, "~> 0.1.5"},
-     {:nerves_system_br, "~> 0.7.0"},
-     {:nerves_toolchain_arm_unknown_linux_gnueabihf, "~> 0.7.0"}]
+    [{:nerves, "~> 0.4.0"},
+     {:nerves_system_br, "~> 0.9.2"},
+     #{:nerves_system_br, github: "nerves-project/nerves_system_br", branch: "rpi-updates"},
+     {:nerves_toolchain_arm_unknown_linux_gnueabihf, "~> 0.9.0"}]
   end
 
   defp description do
